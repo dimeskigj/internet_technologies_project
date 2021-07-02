@@ -1,0 +1,70 @@
+﻿body {
+}
+
+#xtra {
+}
+
+#container-create h2{
+    font-weight: 900;
+}
+
+
+#container-create {
+    color: white !important;
+    text-align: center;
+}
+
+    #container-create section {
+        width: 50em;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        padding: 1%;
+        margin: 2%;
+        background-color: rgba(23, 26, 33, 0.5);
+        border-radius: 1em;
+        /*border-radius: 0 10em 10em 0;*/
+        font-family: 'Poppins', sans-serif;
+        font-weight: 900;
+    }
+
+    #container-create .form-group{
+        color: black;
+    }
+
+    #container-create .form-group h4{
+        color: white;
+    }
+
+    .txtbox, textarea{
+        max-width: 100% !important;
+        width: 50rem !important;
+    }
+
+    textarea{
+        height: 20em;
+    }
+
+.btn-create {
+    border: 0;
+    background: none;
+    background-color: none;
+    text-align: center;
+    border: 2px solid white;
+    padding: 1% 0.5%;
+    width: 17.5em;
+    height: 3.5em;
+    outline: none;
+    color: white;
+    border-radius: 50px;
+    transition: 0.25s;
+}
+
+.btn-create {
+    width: 10em;
+}
+
+    .btn-create:hover {
+        background-color: #66c0f4;
+    }
+

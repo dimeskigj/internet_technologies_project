@@ -1,0 +1,56 @@
+﻿@model IEnumerable<GameReviews.Models.Game>
+
+@{
+    ViewBag.Title = "Index";
+    int count = 0;
+}
+
+<link rel="Stylesheet" type="text/css" href="~/Content/image-hover.css" />
+<link rel="Stylesheet" type="text/css" href="~/Content/gallery.css" />
+
+<div id="sort-options">
+    <a class="btn btn-default" href="@Url.Action("Sort", "Games", new { criteria = "new" })">New</a>
+    <a class="btn btn-default" href="@Url.Action("Sort", "Games", new { criteria = "title" })">Alphabetical</a>
+    <a class="btn btn-default" href="@Url.Action("Sort", "Games", new { criteria = "upvotes" })">Upvotes</a>
+    <a class="btn btn-default" href="@Url.Action("Sort", "Games", new { criteria = "comments" })">Comments</a>
+</div>
+@if (Model.Count() != 0) {
+    <!--uncomment below for navigation-->
+@*<div class="page-navigation">
+    <button class="btn btn-default btn-leftmost"><<</button>
+    <button class="btn btn-default btn-left"><</button>
+    <span class="btn page-number">1</span>
+    <button class="btn btn-default btn-right">></button>
+    <button class="btn btn-default btn-rightmost">>></button>
+</div>*@
+    <div class="img-container">
+        @foreach (var item in Model) {
+            <div class="image" id="image-@count" > <!--also add hidden='true' for navigation-->
+                <img class="image-img" src="@item.PictureURL" />
+                <a href="@Url.Action("Details", "Games", new { id = item.GameId })" class="image-overlay">
+                    <div class="image-title">
+                        @item.Title
+                    </div>
+                    <div class="image-details">
+                        @item.Description.Substring(0, item.Description.Count() < 100 ? item.Description.Count() : 100)...
+                    </div>
+                </a>
+            </div>
+            { count += 1; }
+        }
+    </div>
+}
+else {
+    <div id="no-results">
+        <hr />
+        <div>
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.iconsdb.com%2Ficons%2Fdownload%2Fwhite%2Fwarning-28-512.png&f=1&nofb=1" />
+            <h2>Sorry, no results found.</h2>
+        </div>
+        <hr />
+    </div>
+}
+
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/gallery.js"></script>
+}

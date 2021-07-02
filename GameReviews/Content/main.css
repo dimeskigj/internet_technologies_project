@@ -1,0 +1,70 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+
+.navbar {
+    font-family: 'Poppins', sans-serif;
+    background-color: #171a21;
+    border: 0;
+}
+
+.nav li a:link {
+    color: white;
+}
+
+.nav li a:visited {
+    color: white;
+}
+
+.nav li a:hover {
+    color: #66c0f4 !important;
+    background-color: black !important;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+
+.nav li a:active {
+    color: white;
+}
+
+
+
+#search-bar {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    color: white !important;
+    border-color: white !important;
+}
+
+    #search-bar input {
+        color: ghostwhite;
+        border-radius: 5%;
+        border: 0;
+        outline: 0;
+        border-bottom: 2px solid white;
+        background: transparent;
+    }
+<!-- -->
+
+footer {
+    margin-top: 25px;
+}
+
+body::-webkit-scrollbar-track {
+    background: white;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #1b2838;
+}
+
+body {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    background-color: #1b2838;
+    background-image: url("https://www.transparenttextures.com/patterns/black-mamba.png");
+    background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
+}

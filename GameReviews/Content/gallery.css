@@ -1,0 +1,95 @@
+﻿body {
+}
+
+#no-results {
+    color: aliceblue;
+}
+
+    #no-results img {
+        max-width: 10%;
+        display: inline-block;
+    }
+
+    #no-results #content {
+    }
+
+    #no-results h1, #no-results h2 {
+        display: inline-block;
+        padding: 1%;
+    }
+
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+    .page-navigation .btn-default {
+        display: inline-block;
+        padding: 0em 0.5em;
+        border: 0.2em solid #FFFFFF;
+        margin: 0 0.3em 0.3em 0;
+        border-radius: 0.12em;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Roboto',sans-serif;
+        font-weight: 500;
+        color: white;
+        text-align: center;
+        transition: all 0.2s;
+        background-color: #1b2838;
+    }
+
+    .page-navigation .page-number, .page-navigation .page-number:hover {
+        display: inline-block;
+        padding: 0em 1.2em;
+        border: 0.2em solid #FFFFFF;
+        margin: 0 0.3em 0.3em 0;
+        border-radius: 0.5em;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Roboto',sans-serif;
+        font-weight: 500;
+        color: white;
+        text-align: center;
+        transition: all 0.2s;
+        background-color: black;
+    }
+
+#sort-options a {
+    margin: 0.5%;
+}
+
+#sort-options a {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    /*border: 0.2em solid #FFFFFF;*/
+    border: none;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    transition: all 0.2s;
+    background-color: #1b2838;
+}
+
+    #sort-options a:hover, .page-navigation .btn-default:hover {
+        color: #66c0f4;
+        background-color: black;
+    }
+
+.game-content {
+    display: flex;
+    justify-content: center;
+}
+
+#sort-options {
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    padding-bottom: 0;
+}

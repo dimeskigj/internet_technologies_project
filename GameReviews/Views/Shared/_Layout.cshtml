@@ -1,0 +1,99 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="Stylesheet" type="text/css" href="~/Content/footer.css" />
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="~/Home/Index" style=''>Home</a></li>
+                    <li><a href="~/Games/Index">Browse</a></li>
+                    <li><a href="~/Home/About">About</a></li>
+                    <li><a href="~/Home/Contact">Contact</a></li>
+                    @if (User.IsInRole("admin")) {
+                        <li><a href="~/Games/Create">Add Game</a></li>
+                    }
+                    <li style="padding-top: 2.5%;" id="search-bar">
+                        <form action="~/Games/Search">
+                            <input type="text" id="test" name="term" placeholder="🔍 Search" />
+                            <!--<input id="magnifying-glass" type="submit" name="." style="background-color: red; background-image: url("/~/Images/magnifying_glass.png");" />-->
+                            <!--<img src="~/Images/magnifying_glass.png" style="max-width: 25px;" />-->
+                        </form>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="min-height: 500px">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <hr style="width: 75%;" />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="menu">
+                        <span>Menu</span>
+                        <li>
+                            <a href="~/Home/Index">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="~/Games/Index">Browse</a>
+                        </li>
+
+                        <li>
+                            <a href="~/Home/About">About</a>
+                        </li>
+
+                        <li>
+                            <a href="~/Home/Contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12 logo">
+                    <span class="logo"><img src="~/Images/logo.png" style="max-width: 100%" /></span>
+                </div>
+
+            </div>
+            <hr />
+            <div class="copyright">
+                <span>
+                    &copy; Gjorgji Dimeski - @DateTime.Now.ToString().Split(' ')[0].Split('/')[2]
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+<link rel="Stylesheet" type="text/css" href="~/Content/main.css" />
+<style >
+   
+</style>

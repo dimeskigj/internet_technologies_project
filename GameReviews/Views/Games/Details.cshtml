@@ -1,0 +1,109 @@
+﻿@model GameReviews.Models.CommentViewModel
+
+@{
+    ViewBag.Title = "Details";
+    var game = Model.Game;
+    bool has_upvoted = false;
+    if (game.Upvotes != null) {
+        has_upvoted = null != game.Upvotes.Find(u => u.UserName == User.Identity.Name);
+    }
+}
+
+<link rel="Stylesheet" type="text/css" href="~/Content/details-page.css" />
+
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = game.GameId }) |
+        @Html.ActionLink("Back to List", "Index") |
+    </p>*@
+
+@if (User.IsInRole("admin")) {
+    <div class="admin-menu">
+        <span style="border-radius: 100%;"><a href="~/Games/Edit/@Model.GameId">edit</a></span>
+        <span style="border-radius: 100%; cursor: pointer;"><a href="~/Games/Delete/@Model.GameId">delete</a></span>
+    </div>
+}
+<div class="container-details">
+    <div class="background-image" style='background-image: url("@Model.Game.PictureURL")'></div>
+    <div class="background-black" style=""></div>
+
+    <div class="left-details">
+        <h2>@Model.Title</h2>
+        <img src="@Model.Game.PictureURL" />
+        <div class="extra">
+            <div class="extra">
+                @if (User.Identity.IsAuthenticated) {
+                    if (!has_upvoted) {
+                        <a class="upvote" style="cursor: pointer;" game_id="@Model.GameId" user="@User.Identity.Name">Upvote</a> //Url.Action("Like", "Games", new { game_id = Model.GameId, user = User.Identity.Name })
+                    }
+                    else {
+                        <a class="upvote" style="cursor: pointer;" game_id="@Model.GameId" user="@User.Identity.Name">Downvote</a>
+                    }
+                }
+                else {
+                    <p>log in to upvote!</p>
+                }
+                <a class="steam" href="@Model.Game.SteamURL" target="_blank">Steam</a>
+                @if (Model.Game.Upvotes != null) {
+                    <span id="upvote-count">@Model.Game.Upvotes.Count() upvotes</span>
+                }
+                else {
+                    <span id="upvote-count">0 upvotes</span>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="right-details">
+        <h2 style="font-family: 'Poppins', sans-serif">What is it about?</h2>
+        <hr />
+        <div class="text-details">
+            @Model.Game.Description
+        </div>
+    </div>
+</div>
+<div class="btn-show-more" onclick="showmore()" style="cursor: pointer; float: right;">show more</div>
+<hr />
+<div class="comment-area">
+    <div class="comment-box">
+        @if (User.Identity.IsAuthenticated) {
+            <span class="replying-as">Replying as @User.Identity.Name</span>
+            @Html.Partial("_CommentBox")
+        }
+    </div>
+    <div style="font-family: 'Poppins'; font-weight: 900;"><h4>Comments:</h4> </div>
+    <div class="comments-container">
+        @foreach (var c in Model.Comments) {
+            <div class="comment-instance" id="@c.CommentId">
+                <div class="comment-photo-area">
+                    <img class="comment-user-photo" src="@c.UserPhotoURL" />
+                </div>
+                <div class="comment-body">
+                    <div class="comment-body-details">
+                        <span class="username">@c.UserName</span>
+
+                        @c.DateTime.ToString()
+                        @if (User.IsInRole("admin") || c.UserName == User.Identity.Name) {
+                            <p class="js-delete-comment" data-comment-id="@c.CommentId" style="cursor: pointer;">✖</p>
+                        }
+                    </div>
+                    <div class="comment-body-text">
+                        @c.Text
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/details-script.js"></script>
+    <script type="text/javascript" src="~/Scripts/masonry-layout.js"></script>
+    <script type="text/javascript">
+        console.log($(".comment-instance").innerWidth() * 1.25);
+        $(document).ready(function () {
+            $(".comments-container").masonry({
+                itemSelector: '.comment-instance',
+                columnWidth: '.comment-instance'
+            });
+        });
+    </script>
+}

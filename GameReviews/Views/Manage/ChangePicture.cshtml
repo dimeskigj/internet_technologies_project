@@ -1,0 +1,28 @@
+﻿@model GameReviews.Models.ChangePictureViewModel
+@{
+}
+
+<style>
+    #x {
+        color: white !important;
+    }
+</style>
+
+<div id="x">
+
+    @using (Html.BeginForm("ChangePicture", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+        @Html.AntiForgeryToken()
+        <h2>change your profile picture</h2>
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="">
+                @Html.TextBoxFor(m => m.PictureURL, new { @class = "form-control", style = "display: inline-block;" })
+                <input type="submit" value="Change picture" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="">
+            </div>
+        </div>
+    }
+</div>

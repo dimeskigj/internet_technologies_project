@@ -1,0 +1,27 @@
+﻿@model GameReviews.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<link rel="Stylesheet" type="text/css" href="~/Content/account-details.css" />
+<div class="wrapper">
+    <div class="profile-container">
+        <div class="profile-info">
+            <img src="@Model.PictureURL" />
+            <div class="username">
+                @Model.UserName
+            </div>
+        </div>
+        <div class="link pfp">
+            @Html.ActionLink("Change your profile picture", "ChangePicture")
+        </div>
+        <div class="link pass">
+            @if (Model.HasPassword) {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            else {
+                @Html.ActionLink("Create", "SetPassword")
+            }
+        </div>
+    </div>
+</div>

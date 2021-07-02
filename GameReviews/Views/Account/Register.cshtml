@@ -1,0 +1,39 @@
+﻿@model GameReviews.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<link rel="Stylesheet" type="text/css" href="~/Content/register.css" />
+
+<div id="test">
+    <section id="register-form">
+        <div>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+                @Html.AntiForgeryToken()
+                <h4>register</h4>
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="email">
+                    @Html.TextBoxFor(m => m.Email, new { placeholder = "email", @class = "txtbox" })
+                </div>
+                <div class="username">
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "username", @class = "txtbox" })
+                </div>
+                <div class="picture-url">
+                    @Html.TextBoxFor(m => m.PictureURL, new { placeholder = "picture url", @class = "txtbox" })
+                </div>
+                <div class="password">
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "password", @class = "txtbox" })
+                </div>
+                <div class="confirm">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "confirm password", @class = "txtbox" })
+                </div>
+                <div class="">
+                    <input type="submit" value="Register" class="btn-register" />
+                </div>
+            }
+        </div>
+    </section>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

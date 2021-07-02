@@ -1,0 +1,36 @@
+﻿@using GameReviews.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<link rel="Stylesheet" type="text/css" href="~/Content/login.css" />
+<div id="test">
+    <div class="login-box">
+        <section id="loginForm">
+            <h4>log in</h4>
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="username">
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "username", @class = "txtbox" })
+                </div>
+                <div class="password">
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "password", @class = "txtbox" })
+                </div>
+                <div class="remember-me">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    Remember me
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Log in" class="btn-login" />
+                </div>
+            }
+        </section>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

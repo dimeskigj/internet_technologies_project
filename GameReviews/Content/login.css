@@ -1,0 +1,76 @@
+﻿.login-box {
+    /*    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;*/
+    color: white !important;
+}
+
+.container #test {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loginForm {
+    width: 50em;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 1%;
+    margin: 2%;
+/*    margin-top: -5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
+    text-align: center;
+    background-color: rgba(23, 26, 33, 0.5);
+    border-radius: 10em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+}
+
+#loginForm h4 {
+    font-weight: 900;
+    font-size: 3em;
+}
+
+.username .txtbox,
+.password .txtbox,
+.btn-login {
+    border: 0;
+    background: none;
+    background-color: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid white;
+    padding: 1% 0.5%;
+    width: 17.5em;
+    height: 3.5em;
+    outline: none;
+    color: white;
+    border-radius: 50px;
+    transition: 0.25s;
+}
+
+    .username .txtbox:focus,
+    .password .txtbox:focus,
+    .username .txtbox:hover,
+    .password .txtbox:hover {
+        border: 3px solid #66c0f4;
+        width: 50em;
+        box-shadow: black 2px 2px;
+    }
+
+.btn-login {
+    width: 10em;
+}
+
+    .btn-login:hover {
+        width: 11em;
+        background-color: #66c0f4;
+    }

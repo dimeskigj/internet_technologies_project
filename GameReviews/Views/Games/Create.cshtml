@@ -1,0 +1,50 @@
+﻿@model GameReviews.Models.Game
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<link rel="Stylesheet" type="text/css" href="~/Content/create-game.css" />
+<div id="extra">
+    <div id="container-create">
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+                <section>
+                    <h2>Add a new game</h2>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <h4>Title</h4>
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "txtbox" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Description</h4>
+                        @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "txtbox" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Picture (URL)</h4>
+                        @Html.EditorFor(model => model.PictureURL, new { htmlAttributes = new { @class = "txtbox" } })
+                        @Html.ValidationMessageFor(model => model.PictureURL, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Steam link</h4>
+                        @Html.EditorFor(model => model.SteamURL, new { htmlAttributes = new { @class = "txtbox" } })
+                        @Html.ValidationMessageFor(model => model.SteamURL, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <div class="submit">
+                            <input type="submit" value="Create" class="btn-create" />
+                        </div>
+                    </div>
+                </section>
+        }
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
