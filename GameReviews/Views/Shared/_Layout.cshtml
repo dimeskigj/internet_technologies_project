@@ -4,13 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Game Hut</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="Stylesheet" type="text/css" href="~/Content/footer.css" />
 
 </head>
 <body>
+    <a href="#top" class="gototop" id="top-button" hidden="hidden"><img src="~/Images/top.png"/></a>
+    <span name="#top"></span>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -97,3 +99,15 @@
 <style >
    
 </style>
+
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+    $(window).on("scroll", function () {
+        var scrollPos = $(window).scrollTop();
+        if (scrollPos <= 0) {
+            $("#top-button").fadeOut();
+        } else {
+            $("#top-button").fadeIn();
+        }
+    });
+</script>

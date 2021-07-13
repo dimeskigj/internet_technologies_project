@@ -33,10 +33,10 @@
             <div class="extra">
                 @if (User.Identity.IsAuthenticated) {
                     if (!has_upvoted) {
-                        <a class="upvote" style="cursor: pointer;" game_id="@Model.GameId" user="@User.Identity.Name">Upvote</a> //Url.Action("Like", "Games", new { game_id = Model.GameId, user = User.Identity.Name })
+                        <a class="upvote" style="cursor: pointer;" game_id="@Model.GameId" user="@User.Identity.Name">👍 Upvote</a> //Url.Action("Like", "Games", new { game_id = Model.GameId, user = User.Identity.Name })
                     }
                     else {
-                        <a class="upvote" style="cursor: pointer;" game_id="@Model.GameId" user="@User.Identity.Name">Downvote</a>
+            <a class="upvote" style="cursor: pointer;" game_id="@Model.GameId" user="@User.Identity.Name">👎 Downvote</a>
                     }
                 }
                 else {

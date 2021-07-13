@@ -54,11 +54,12 @@
         $.ajax({
             url: "/Games/Like?game_id=" + game_id + "&user=" + user,
             success: function () {
-                if ($(".upvote").html() == "Upvote") {
-                    $(".upvote").html("Downvote");
+                console.log("ok")
+                if ($(".upvote").html().endsWith("Upvote")) {
+                    $(".upvote").html("👎 Downvote");
                     current += 1;
                 } else {
-                    $(".upvote").html("Upvote");
+                    $(".upvote").html("👍 Upvote");
                     current -= 1;
                 }
                 upvotecounter.html(current + " upvotes");

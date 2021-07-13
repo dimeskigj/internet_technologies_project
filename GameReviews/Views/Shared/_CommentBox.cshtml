@@ -5,11 +5,15 @@
         @Html.AntiForgeryToken()
         @Html.Hidden("GameId", Model.GameId)
         <div class="">
-            @Html.TextAreaFor(m => m.Comment, new { @class = "comment-text", placeholder = "What are your thoughts?" })
-            <input type="submit" name="btnRegister" value="comment" class="btn-submit" />
+            @Html.TextAreaFor(m => m.Comment, new { @class = "comment-text", placeholder = "What are your thoughts?", @required = true })
+            <input type="submit" name="btnRegister" value="comment" class="btn-submit" id="submit-comment-btn" />
         </div>
     }
 </div>
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+
+</script>
 
 <style>
     .comment-form {
